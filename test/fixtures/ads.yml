@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 
+  model_id_id: 
+  year: 2014-04-18
+  details: MyText
+  price: 1
+  millage: 1
+  expration: 2014-04-18
+  fuel_type: MyString
+  girbox: MyString
+  body_color_id: 1
+  internal_color_id: 1
+  active: false
+
+two:
+  user_id: 
+  model_id_id: 
+  year: 2014-04-18
+  details: MyText
+  price: 1
+  millage: 1
+  expration: 2014-04-18
+  fuel_type: MyString
+  girbox: MyString
+  body_color_id: 1
+  internal_color_id: 1
+  active: false

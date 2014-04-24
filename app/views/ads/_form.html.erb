@@ -1,0 +1,65 @@
+<%= form_for(@ad) do |f| %>
+  <% if @ad.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@ad.errors.count, "error") %> prohibited this ad from being saved:</h2>
+
+      <ul>
+      <% @ad.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :user_id %><br>
+    <%= f.text_field :user_id %>
+  </div>
+  <div class="field">
+    <%= f.label :carmodel_id %><br>
+    <%= f.text_field :carmodel_id %>
+  </div>
+  <div class="field">
+    <%= f.label :year %><br>
+    <%= f.date_select :year %>
+  </div>
+  <div class="field">
+    <%= f.label :details %><br>
+    <%= f.text_area :details %>
+  </div>
+  <div class="field">
+    <%= f.label :price %><br>
+    <%= f.number_field :price %>
+  </div>
+  <div class="field">
+    <%= f.label :millage %><br>
+    <%= f.number_field :millage %>
+  </div>
+  <div class="field">
+    <%= f.label :expration %><br>
+    <%= f.date_select :expration %>
+  </div>
+  <div class="field">
+    <%= f.label :fuel_type %><br>
+    <%= f.text_field :fuel_type %>
+  </div>
+  <div class="field">
+    <%= f.label :girbox %><br>
+    <%= f.text_field :girbox %>
+  </div>
+  <div class="field">
+    <%= f.label :body_color_id %><br>
+    <%= f.number_field :body_color_id %>
+  </div>
+  <div class="field">
+    <%= f.label :internal_color_id %><br>
+    <%= f.number_field :internal_color_id %>
+  </div>
+  <div class="field">
+    <%= f.label :active %><br>
+    <%= f.check_box :active %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

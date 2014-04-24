@@ -1,0 +1,52 @@
+<%= link_to "Scrap", scrap_ads_path %>
+
+<h1>Listing ads</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Model</th>
+      <th>Year</th>
+      <th>Details</th>
+      <th>Price</th>
+      <th>Millage</th>
+      <th>Expration</th>
+      <th>Fuel type</th>
+      <th>Girbox</th>
+      <th>Body color</th>
+      <th>Internal color</th>
+      <th>Active</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ads.each do |ad| %>
+      <tr>
+        <td><%= ad.user %></td>
+        <td><%= ad.carmodel_id %></td>
+        <td><%= ad.year %></td>
+        <td><%= ad.details %></td>
+        <td><%= ad.price %></td>
+        <td><%= ad.millage %></td>
+        <td><%= ad.expration %></td>
+        <td><%= ad.fuel %></td>
+        <td><%= ad.girbox %></td>
+        <td><%= ad.body_color_id %></td>
+        <td><%= ad.internal_color_id %></td>
+        <td><%= ad.active %></td>
+        <td><%= link_to 'Show', ad %></td>
+        <td><%= link_to 'Edit', edit_ad_path(ad) %></td>
+        <td><%= link_to 'Destroy', ad, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Ad', new_ad_path %>
+

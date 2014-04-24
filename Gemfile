@@ -4,7 +4,26 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.2'
 
 # Use postgresql as the database for Active Record
+
+gem 'devise'
+gem "cancan", "~> 1.6.10"
+gem "paperclip", "~> 3.5.2"
+gem 'aws-sdk'
+gem "geocoder", "~> 1.1.8"
 gem 'pg'
+gem 'simple_form'
+
+gem "gravatar_image_tag", "~> 1.2.0"
+gem "jalalidate", "~> 0.3.3"
+gem 'awesome_print'
+gem 'exception_notification'
+gem 'will_paginate'
+gem 'will_paginate-bootstrap', '~> 1.0.0'
+gem 'gmaps4rails'
+gem 'ckeditor', '~> 4.0.11'
+gem 'non-stupid-digest-assets', '~> 1.0.4'
+
+gem 'nokogiri', '~> 1.6.1'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -26,6 +45,13 @@ gem 'turbolinks'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
+
+group :development do
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'meta_request'
+  gem 'letter_opener'
+end
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

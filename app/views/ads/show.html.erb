@@ -1,0 +1,64 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @ad.user %>
+</p>
+
+<p>
+  <strong>Model:</strong>
+  <%= @ad.carmodel_id %>
+</p>
+
+<p>
+  <strong>Year:</strong>
+  <%= @ad.year %>
+</p>
+
+<p>
+  <strong>Details:</strong>
+  <%= @ad.details %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @ad.price %>
+</p>
+
+<p>
+  <strong>Millage:</strong>
+  <%= @ad.millage %>
+</p>
+
+<p>
+  <strong>Expration:</strong>
+  <%= @ad.expration %>
+</p>
+
+<p>
+  <strong>Fuel type:</strong>
+  <%= @ad.fuel %>
+</p>
+
+<p>
+  <strong>Girbox:</strong>
+  <%= @ad.girbox %>
+</p>
+
+<p>
+  <strong>Body color:</strong>
+  <%= @ad.body_color_id %>
+</p>
+
+<p>
+  <strong>Internal color:</strong>
+  <%= @ad.internal_color_id %>
+</p>
+
+<p>
+  <strong>Active:</strong>
+  <%= @ad.active %>
+</p>
+
+<%= link_to 'Edit', edit_ad_path(@ad) %> |
+<%= link_to 'Back', ads_path %>

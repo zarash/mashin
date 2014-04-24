@@ -1,9 +1,10 @@
 Mashin::Application.routes.draw do
   
-  resources :scraps, only: [:show]
-  resources :ads do
+  resources :scraps, only: [:show] do
     get "scrap" , on: :collection
   end
+
+  resources :ads 
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -1,4 +1,6 @@
 Mashin::Application.routes.draw do
+  
+  resources :scraps, only: [:show]
   resources :ads do
     get "scrap" , on: :collection
   end

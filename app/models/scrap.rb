@@ -18,6 +18,7 @@ class Scrap < ActiveRecord::Base
 
 
 private
+  
 	def single_page_sweep(doc)
 		
     doc.css('.center a.grid').each do |tag|
@@ -25,11 +26,29 @@ private
       url_single = tag["href"]
 
       doc_single = Nokogiri::HTML(open(url_single))
+      
+      next if skip_condition? doc_single, url_single
 
       ad_hash = single_ad_sweep(doc_single)
 
-	    ad = self.ads.build(
-        origin_url:        url_single,
+      ad = create_ad(ad_hash)
+
+      build_ad_other_field_record(ad, url_single, ad_hash)
+    end
+
+	end
+
+  def build_ad_other_field_record(ad, url_single, ad_hash)
+      ad.build_ad_other_field(
+        source_url:  url_single,
+        tel:         ad_hash[:tel]
+      )
+      ad.save  
+  end
+
+  def create_ad ad_hash
+      ad = self.ads.build(
+        car_model_id:      ad_hash[:car_model_id],
         price:             ad_hash[:price], 
         year:              ad_hash[:year], 
         details:           ad_hash[:details], 
@@ -40,14 +59,22 @@ private
         body_color_id:     ad_hash[:body_color_id],
         internal_color_id: ad_hash[:internal_color_id],
         location:          ad_hash[:location],
- 				latitude:	         ad_hash[:latitude], 
-    		longitude:         ad_hash[:longitude], 
+        latitude:          ad_hash[:latitude], 
+        longitude:         ad_hash[:longitude], 
         active: true
       )
+      ad.save
+      ad
+  end
 
-	    ad.save
+  def skip_condition? doc_single, url_single
+    flag = false
+    feature = doc_single.css('#ctl00_cphMain_SelectedAdInfo1_lblBrandModelYear')
+    if feature.blank?
+      flag = true
     end
-	end
+    flag
+  end
 
 	def single_ad_sweep doc_single
     ad_hash = {}
@@ -68,11 +95,25 @@ private
 
     ad_hash[:location]  = location doc_single
     loc = Geocoder.search (ad_hash[:location])
-    ad_hash[:latitude]  = loc[0].latitude
-    ad_hash[:longitude] = loc[0].longitude
+    ad_hash[:latitude]  = loc[0].try(:latitude)
+    ad_hash[:longitude] = loc[0].try(:longitude)
 
     ad_hash[:year] = year(doc_single)
-    # ad_hash[:carmodel = feature.text.split("،")[1]
+
+    feature = doc_single.css('#ctl00_cphMain_SelectedAdInfo1_lblBrandModelYear')
+    make_name = feature.text.split("،")[1].strip
+    car_model_name = feature.text.split("،")[2].strip
+
+    make = Make.find_or_create_by(name: make_name)
+    car_model = CarModel.find_by(name: car_model_name)
+    unless car_model
+    	car_model = CarModel.create(name: car_model_name, make_id: make.id)
+    end
+
+    ad_hash[:car_model_id] = car_model.id
+
+    # ad_hash[:car_model] = car_model(doc_single)
+    # ad_hash[:car_model = feature.text.split("،")[1]
     # brand = feature.text.split("،")[2]
 
 		ad_hash[:usage_type] = usage_type(ad_hash[:price], ad_hash[:millage])
@@ -136,11 +177,11 @@ private
 
   def check_for_being_ads_new doc_single
     date = doc_single.css('#ctl00_cphMain_SelectedAdInfo1_lblDate')
-    if date != "امروز"
-    	self.count = self.count + 1
-    else
-    	self.count = 0
-    end
+      if date != "امروز"
+      	self.count = self.count + 1
+      else
+      	self.count = 0
+      end
   end
 
   def usage_type price, millage

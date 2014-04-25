@@ -11,14 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140424184938) do
+ActiveRecord::Schema.define(version: 20140425131948) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "ad_other_fields", force: true do |t|
+    t.integer  "ad_id"
+    t.string   "tel"
+    t.string   "source_url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "ad_other_fields", ["ad_id"], name: "index_ad_other_fields_on_ad_id", using: :btree
+  add_index "ad_other_fields", ["source_url"], name: "index_ad_other_fields_on_source_url", using: :btree
+
   create_table "ads", force: true do |t|
     t.integer  "user_id"
-    t.integer  "carmodel_id"
+    t.integer  "car_model_id"
     t.integer  "body_color_id"
     t.integer  "internal_color_id"
     t.integer  "scrap_id"
@@ -39,10 +50,28 @@ ActiveRecord::Schema.define(version: 20140424184938) do
   end
 
   add_index "ads", ["body_color_id"], name: "index_ads_on_body_color_id", using: :btree
-  add_index "ads", ["carmodel_id"], name: "index_ads_on_carmodel_id", using: :btree
+  add_index "ads", ["car_model_id"], name: "index_ads_on_car_model_id", using: :btree
   add_index "ads", ["internal_color_id"], name: "index_ads_on_internal_color_id", using: :btree
   add_index "ads", ["scrap_id"], name: "index_ads_on_scrap_id", using: :btree
   add_index "ads", ["user_id"], name: "index_ads_on_user_id", using: :btree
+
+  create_table "car_models", force: true do |t|
+    t.string   "name"
+    t.integer  "make_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "car_models", ["make_id"], name: "index_car_models_on_make_id", using: :btree
+  add_index "car_models", ["name"], name: "index_car_models_on_name", using: :btree
+
+  create_table "makes", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "makes", ["name"], name: "index_makes_on_name", using: :btree
 
   create_table "scraps", force: true do |t|
     t.integer  "count"

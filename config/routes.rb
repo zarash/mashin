@@ -1,5 +1,9 @@
 Mashin::Application.routes.draw do
   
+  resources :carmodels
+
+  resources :makes
+
   resources :scraps, only: [:show] do
     get "scrap" , on: :collection
   end

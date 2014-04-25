@@ -2,7 +2,7 @@ class CreateAds < ActiveRecord::Migration
   def change
     create_table :ads do |t|
       t.belongs_to :user, index: true
-      t.belongs_to :carmodel, index: true
+      t.belongs_to :car_model, index: true
       t.belongs_to :body_color, index: true
       t.belongs_to :internal_color, index: true
       t.belongs_to :scrap, index: true

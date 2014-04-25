@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140425131948) do
+ActiveRecord::Schema.define(version: 20140425150228) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,16 +43,12 @@ ActiveRecord::Schema.define(version: 20140425131948) do
     t.integer  "usage_type",        default: 10
     t.boolean  "girbox",            default: false
     t.boolean  "active",            default: false
-    t.string   "origin_url"
     t.text     "details"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "ads", ["body_color_id"], name: "index_ads_on_body_color_id", using: :btree
   add_index "ads", ["car_model_id"], name: "index_ads_on_car_model_id", using: :btree
-  add_index "ads", ["internal_color_id"], name: "index_ads_on_internal_color_id", using: :btree
-  add_index "ads", ["scrap_id"], name: "index_ads_on_scrap_id", using: :btree
   add_index "ads", ["user_id"], name: "index_ads_on_user_id", using: :btree
 
   create_table "car_models", force: true do |t|
@@ -64,6 +60,15 @@ ActiveRecord::Schema.define(version: 20140425131948) do
 
   add_index "car_models", ["make_id"], name: "index_car_models_on_make_id", using: :btree
   add_index "car_models", ["name"], name: "index_car_models_on_name", using: :btree
+
+  create_table "image_urls", force: true do |t|
+    t.integer  "ad_id"
+    t.string   "url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "image_urls", ["ad_id"], name: "index_image_urls_on_ad_id", using: :btree
 
   create_table "makes", force: true do |t|
     t.string   "name"

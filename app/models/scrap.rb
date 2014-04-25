@@ -34,9 +34,27 @@ private
       ad = create_ad(ad_hash)
 
       build_ad_other_field_record(ad, url_single, ad_hash)
+
+      build_ad_images(ad, doc_single)
+
     end
 
 	end
+
+  def build_ad_images(ad, doc_single)
+    doc_single.css('#ctl00_cphMain_SelectedAdImages1_pnlImage div>img.AdImagefader').each do |img|
+      url = img["src"].gsub "../..", "http://www.bama.ir"
+
+      build_ad_image(ad, url)
+    end
+  end
+
+  def build_ad_image(ad, url)
+    unless url == "http://www.bama.ir/AdImages/Default-Car-Big.png"
+      ad.image_urls.build( url:  url)
+      ad.save      
+    end
+  end
 
   def build_ad_other_field_record(ad, url_single, ad_hash)
       ad.build_ad_other_field(
@@ -78,6 +96,7 @@ private
 
 	def single_ad_sweep doc_single
     ad_hash = {}
+
     ad_hash[:tel] = tel doc_single
 
     ad_hash[:price] = price doc_single

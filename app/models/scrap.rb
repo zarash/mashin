@@ -112,11 +112,11 @@ private
     ad_hash[:body_color_id] = body_color_id doc_single
     ad_hash[:internal_color_id] = internal_color_id doc_single
 
-    ad_hash[:location]  = location doc_single
-    loc = Geocoder.search (ad_hash[:location])
-    ad_hash[:latitude]  = loc[0].try(:latitude)
-    ad_hash[:longitude] = loc[0].try(:longitude)
 
+    ad_hash[:location]  = location doc_single
+    loc = extract_lat_lng(ad_hash[:location])
+    ad_hash[:latitude]  = loc[:latitude]
+    ad_hash[:longitude] = loc[:longitude]
     ad_hash[:year] = year(doc_single)
 
     feature = doc_single.css('#ctl00_cphMain_SelectedAdInfo1_lblBrandModelYear')
@@ -131,15 +131,28 @@ private
 
     ad_hash[:car_model_id] = car_model.id
 
-    # ad_hash[:car_model] = car_model(doc_single)
-    # ad_hash[:car_model = feature.text.split("،")[1]
-    # brand = feature.text.split("،")[2]
-
 		ad_hash[:usage_type] = usage_type(ad_hash[:price], ad_hash[:millage])
 
 		check_for_being_ads_new(doc_single)
     
     ad_hash
+  end
+
+  def extract_lat_lng location
+    l = {}
+    myloc = Location.where(name: location).first
+    if myloc && myloc.latitude
+      lat = myloc.latitude
+      lng = myloc.longitude
+    else
+      loc = Geocoder.search(location)[0]
+      lat = loc.try(:latitude)
+      lng = loc.try(:longitude)
+      Location.create(name: location, latitude: lat, longitude: lng)  if lng
+    end
+    l[:latitude]  = lat
+    l[:longitude] = lng
+    l
   end
 
   def tel doc_single

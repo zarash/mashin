@@ -14,7 +14,7 @@ class CreateAds < ActiveRecord::Migration
       t.date     :year
       t.integer  :price
       t.integer  :millage
-      t.integer  :fuel
+      t.integer  :fuel # benzin = 0, gasoil = 1, dogane = 2 
       t.integer  :usage_type, default: 10 # karkarde =0, sefr: 1, havale: 2
       t.boolean  :girbox, default: false
       t.boolean  :active, default: false

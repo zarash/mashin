@@ -1,64 +1,20 @@
-<p id="notice"><%= notice %></p>
+<h2>Ad show</h2>
+<p>car_model: <%= @ad.car_model.name %></p>
+<p>make: <%= @ad.car_model.make.name %></p>
+ <p>location: <%= @ad.location %></p>
+<p>year: <%= @ad.year %></p>
+<p>price: <%= @ad.price %></p>
+<p>millage: <%= @ad.millage %>Km</p>
+<p>fuel: <%= human_fuel(@ad.fuel) %></p>
+<p>usage: <%= usage(@ad.usage_type) %></p>
+<p>girbox: <%= human_girbox(@ad.girbox) %></p>
+<p>detail: <%=  @ad.details %></p>
+<p>body color: <%=  COLORS[@ad.body_color_id] %></p>
+<p>internal color: <%=  COLORS[@ad.internal_color_id] %></p>
 
-<p>
-  <strong>User:</strong>
-  <%= @ad.user %>
-</p>
-
-<p>
-  <strong>Model:</strong>
-  <%= @ad.car_model_id %>
-</p>
-
-<p>
-  <strong>Year:</strong>
-  <%= @ad.year %>
-</p>
-
-<p>
-  <strong>Details:</strong>
-  <%= @ad.details %>
-</p>
-
-<p>
-  <strong>Price:</strong>
-  <%= @ad.price %>
-</p>
-
-<p>
-  <strong>Millage:</strong>
-  <%= @ad.millage %>
-</p>
-
-<p>
-  <strong>Expration:</strong>
-  <%= @ad.expration %>
-</p>
-
-<p>
-  <strong>Fuel type:</strong>
-  <%= @ad.fuel %>
-</p>
-
-<p>
-  <strong>Girbox:</strong>
-  <%= @ad.girbox %>
-</p>
-
-<p>
-  <strong>Body color:</strong>
-  <%= @ad.body_color_id %>
-</p>
-
-<p>
-  <strong>Internal color:</strong>
-  <%= @ad.internal_color_id %>
-</p>
-
-<p>
-  <strong>Active:</strong>
-  <%= @ad.active %>
-</p>
-
-<%= link_to 'Edit', edit_ad_path(@ad) %> |
-<%= link_to 'Back', ads_path %>
+<p>tel: <%=  @ad.ad_other_field.tel %></p>
+<%= link_to "source", @ad.ad_other_field.source_url %>
+<br>
+<% @ad.image_urls.each do |img| %>
+  <%= image_tag img.url %>
+<% end %>

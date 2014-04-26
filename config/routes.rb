@@ -1,5 +1,7 @@
 Mashin::Application.routes.draw do
   
+  root 'search#show'
+  resource :search, only: [:show]
   resources :carmodels
 
   resources :makes

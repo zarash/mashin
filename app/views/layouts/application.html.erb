@@ -1,14 +1,16 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Mashin</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+<%= render 'head' %>
 
-<%= yield %>
+<%= render 'navbar' %>
 
-</body>
-</html>
+<div class="container">
+
+	<%= render 'header' %>
+  <div id="siteContent">
+    <%= flash_creator flash %>
+    <%= yield %>  
+  </div>
+  
+</div>
+
+<%= render 'footer' %>
+

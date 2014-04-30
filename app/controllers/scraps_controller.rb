@@ -5,12 +5,12 @@ class ScrapsController < ApplicationController
 
   def scrap
     scrap = Scrap.new
-    scrap.url = "http://www.bama.ir/car/page="
+    scrap.url = "http://www.bama.ir/car/mix/sort=1;page="
     scrap.save
 
     scrap.sweep
 
-    redirect_to action: "index"
+    redirect_to root_path
   end
 
 end

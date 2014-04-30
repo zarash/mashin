@@ -1,0 +1,9 @@
+<div class="title">
+	<%= ad.id %> -
+	<%= ad.car_model.name %>, 
+	<%= ad.car_model.make.name %>,
+  <%= appropriate_year(ad) %> - 
+	<%= ad.location %>	- 
+	<%= number_to_currency ad.price, delimiter: ",", unit: t("toman") %>,
+	<%= link_to "more", ad %>
+</div>

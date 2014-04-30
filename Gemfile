@@ -24,6 +24,7 @@ gem 'ckeditor', '~> 4.0.11'
 gem 'non-stupid-digest-assets', '~> 1.0.4'
 
 gem 'nokogiri', '~> 1.6.1'
+gem  'whenever', require: false
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -47,10 +48,12 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 
 group :development do
+  gem 'rack-mini-profiler'
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'meta_request'
   gem 'letter_opener'
+  gem 'bullet'
 end
 
 group :doc do

@@ -1,0 +1,7 @@
+en:
+  searches:
+    search_form:
+      brand: Brand
+      car_model: Car model
+      kilometre: Kilometer
+      year_from: .

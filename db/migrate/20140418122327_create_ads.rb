@@ -2,7 +2,9 @@ class CreateAds < ActiveRecord::Migration
   def change
     create_table :ads do |t|
       t.belongs_to :user, index: true
-      t.belongs_to :car_model, index: true
+      t.belongs_to :car_model
+      t.belongs_to :make
+
       t.belongs_to :body_color
       t.belongs_to :internal_color
       t.belongs_to :scrap
@@ -12,6 +14,8 @@ class CreateAds < ActiveRecord::Migration
       t.float    :longitude
 
       t.date     :year
+      t.boolean  :year_format # shamsi true miladi false
+
       t.integer  :price
       t.integer  :millage
       t.integer  :fuel # benzin = 0, gasoil = 1, dogane = 2 

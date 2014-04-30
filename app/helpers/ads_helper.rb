@@ -26,4 +26,7 @@ module AdsHelper
   	girbox ? "manual" : "automatic"
   end
 
+  def appropriate_year(ad)
+    ad.year_format ? JalaliDate.new(ad.year).year : ad.year.year 
+  end
 end

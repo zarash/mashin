@@ -1,0 +1,59 @@
+<% makes = Make.includes(:car_models).order(:name) %>
+<div id="search_form" class="col-sm-6 col-md-4 col-lg-3">
+	<%= simple_form_for @search, url: searches_path, method: :post, 
+		defaults:{
+		  wrapper_html: { class: 'form-group' }, 
+		  input_html:   { class: 'form-control ' }
+		  # , label_html:   { class: '' }
+		} do |f| -%>
+
+		<div class="row">
+			<div class="col-sm-6">
+				<%= f.association :make, label: t(".brand"), collection: makes, input_html: {id: "make_id"} %>			
+			</div>
+			<div class="col-sm-6">
+				<%= f.input :car_model_id, label: t(".car_model"), collection: makes, as: :grouped_select, group_method: :car_models, prompt: "", input_html: {id: "car_model_id"}  %>
+			</div>
+		</div>
+
+		<div class="row">
+				<% if @search.date_format == false %>
+					<%= f.select :year_from, 1950..(Date.today.year), selected: @search.year_from.year %>
+					<%= f.select :year_to, 1950..(Date.today.year), selected: @search.year_to.year %>
+				<% else %>
+					<div class="col-sm-6">
+						<%= f.input :year_from, label: t(".year_from") , collection: 1340..(JalaliDate.new(Date.today).year), selected: @search.year_from_shamsi  %>
+					</div>
+					<div class="col-sm-6">
+						<%= f.input :year_to, label: t(".year_to"), collection: 1340..(JalaliDate.new(Date.today).year), selected: @search.year_to_shamsi %>
+					</div>
+				<% end %>			
+		</div>
+
+		<div class="row">
+			<div class="col-sm-6">
+				<%= f.input :price_from, label: t(".price_from"), as: :decimal %><%= t".milion_toman" %> 
+			</div>
+			<div class="col-sm-6">
+				<%= f.input :price_to, label: t(".price_to"), as: :decimal %><%= t".milion_toman" %> 
+			</div>
+		</div>
+
+		<p>
+			<%= f.label :millage_from, "millage From" %>
+			<%= f.number_field :millage_from %><%= t".kilometre" %> 
+			<%= f.number_field :millage_to %><%= t".kilometre" %> 
+		</p>
+
+		<p>
+			<%= f.input :location, input_html: {id: "location_city"} %>
+			<%= f.input :radius,collection: [10,20,50,100,200] %><%= t".kilometre" %> 
+		</p>
+
+		<p>
+			<%= f.select :order, ['new', 'cheap', 'expencive', 'year'] %>
+
+		</p>
+		<%= f.submit "search", :disable_with => 'searching...' %>
+	<% end %>
+</div>

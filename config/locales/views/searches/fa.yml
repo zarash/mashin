@@ -1,0 +1,11 @@
+fa:
+  searches:
+    search_form:
+      brand: برند
+      car_model: مدل خودرو
+      kilometre: کیلومتر
+      milion_toman: میلیون تومان
+      price_from: ' قیمت از  (میلیون تومان)'
+      price_to: تا قیمت (میلیون تومان)
+      year_from: ' از سال'
+      year_to: تا سال

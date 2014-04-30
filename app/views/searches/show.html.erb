@@ -1,0 +1,13 @@
+ <div id="search_show">
+  <%= render 'search_form' %>
+
+  <div class="search">
+  	<% if @ads %>
+  		<% @ads.each do |ad| %>
+  			<div class="search_row">
+  				<%= render 'ad', ad: ad %>
+  			</div>
+  		<% end %>
+  	<% end %>
+  </div>
+</div>

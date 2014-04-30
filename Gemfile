@@ -26,6 +26,8 @@ gem 'non-stupid-digest-assets', '~> 1.0.4'
 gem 'nokogiri', '~> 1.6.1'
 gem  'whenever', require: false
 
+gem 'dalli'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 

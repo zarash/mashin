@@ -16,7 +16,7 @@ class CreateAds < ActiveRecord::Migration
       t.date     :year
       t.boolean  :year_format # shamsi true miladi false
 
-      t.integer  :price
+      t.decimal  :price
       t.integer  :millage
       t.integer  :fuel # benzin = 0, gasoil = 1, dogane = 2 
       t.integer  :usage_type, default: 10 # karkarde =0, sefr: 1, havale: 2

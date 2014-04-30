@@ -12,8 +12,16 @@ class SearchesController < ApplicationController
   	@search = Search.new(search_params)
   	@search.year_from = correct_date(search_params[:year_from]) if search_params[:year_from].present?
   	@search.year_to   = correct_date( search_params[:year_to])  if search_params[:year_to].present?
-  	@search.save
-  	redirect_to @search
+
+    respond_to do |format|
+      if @search.save
+        format.html { redirect_to @search }
+        format.json { render action: 'show', status: :created, location: @search }
+      else
+        format.html { render action: 'index' }
+        format.json { render json: @search.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def show
@@ -34,10 +42,6 @@ private
   end
 
   def correct_date year
-  	if search_params[:date_format] = false
-	  	("1/1/"+year).to_date if year.present?
-  	else
-		  JalaliDate.new(year.to_i,1,1).to_g 
-  	end
+	  JalaliDate.new(year.to_i,1,1).to_g 
   end
 end 

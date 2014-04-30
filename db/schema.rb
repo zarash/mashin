@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 20140426205546) do
     t.float    "longitude"
     t.date     "year"
     t.boolean  "year_format"
-    t.integer  "price"
+    t.decimal  "price"
     t.integer  "millage"
     t.integer  "fuel"
     t.integer  "usage_type",        default: 10
@@ -102,7 +102,6 @@ ActiveRecord::Schema.define(version: 20140426205546) do
     t.integer  "make_id"
     t.date     "year_from"
     t.date     "year_to"
-    t.boolean  "date_format",  default: true
     t.integer  "millage_from"
     t.integer  "millage_to"
     t.decimal  "price_from"

@@ -5,19 +5,22 @@ class Search < ActiveRecord::Base
 	belongs_to :make
 	belongs_to :car_model
 
-	validates :price_from, length: {maximum: 6}
-
 	def year_from_shamsi
-		year_from ? JalaliDate.new(year_from).year : 1350
+		year_from ? JalaliDate.new(year_from).year : ""
 	end
 
 	def year_to_shamsi
-		year_to   ? JalaliDate.new(year_to).year : JalaliDate.new(Date.today)
+		year_to   ? JalaliDate.new(year_to).year : ""
 	end
 
-	def ads
-		@ads ||= find_ads
-	end
+  def ads
+    @ads ||= find_ads
+  end
+
+  def count
+    @ads = ads.to_a.size
+  end
+
 private
 
 	def find_ads
@@ -27,8 +30,8 @@ private
 		ads = ads.where("year >= ?", year_from) if year_from.present?
 		ads = ads.where("year <= ?", year_to) if year_to.present?
 
-		ads = ads.where("price >= ?", price_from * 1000000) if price_from.present?
-		ads = ads.where("price <= ?", price_to * 1000000) if price_to.present?
+		ads = ads.where("price >= ?", price_from ) if price_from.present?
+		ads = ads.where("price <= ?", price_to ) if price_to.present?
 
 		ads = ads.where("millage >= ?", millage_from) if millage_from.present?
 		ads = ads.where("millage <= ?", millage_to) if millage_to.present?

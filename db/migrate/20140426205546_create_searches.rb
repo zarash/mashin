@@ -7,7 +7,6 @@ class CreateSearches < ActiveRecord::Migration
 
 			t.date  	:year_from 
 			t.date		:year_to
-			t.boolean :date_format, default: true #shamsi 0, miladi 1
 
 			t.integer	:millage_from
 			t.integer	:millage_to

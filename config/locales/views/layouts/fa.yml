@@ -2,3 +2,5 @@ fa:
   layouts:
     application:
       Otoyabi: اتویابی
+  search: 'جستجو (%{count} مورد)'
+  kilometer: کیلومتر

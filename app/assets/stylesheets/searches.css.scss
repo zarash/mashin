@@ -1,7 +1,11 @@
 #search_show{
   #search_form{
-    select{
-      padding: 5px;
+    select, input{
+      padding: 0px 5px;
+      height: 25px;
+    }
+    label{
+      margin-bottom: 0px
     }
   }
 }

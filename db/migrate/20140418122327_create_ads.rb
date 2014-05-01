@@ -26,5 +26,6 @@ class CreateAds < ActiveRecord::Migration
 
       t.timestamps
     end
+
   end
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140426205546) do
+ActiveRecord::Schema.define(version: 20140501182122) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,6 +50,9 @@ ActiveRecord::Schema.define(version: 20140426205546) do
     t.datetime "updated_at"
   end
 
+  add_index "ads", ["active", "latitude", "longitude", "fuel", "price"], name: "index_ads_on_active_lat_fuel_price", using: :btree
+  add_index "ads", ["active", "latitude", "longitude", "make_id", "car_model_id", "price"], name: "index_ads_on_active_lat_make_model_price", using: :btree
+  add_index "ads", ["active", "latitude", "longitude", "make_id", "usage_type", "year", "price"], name: "index_ads_on_active_lat_make_usage_year_price", using: :btree
   add_index "ads", ["user_id"], name: "index_ads_on_user_id", using: :btree
 
   create_table "car_models", force: true do |t|

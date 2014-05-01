@@ -18,6 +18,8 @@ fa:
       price_to: تا قیمت
       radius: شهرهای اطراف آن شهر به شعاع
       radius around the city: شعاع کیلومتری را وارد کنید
+      search result: نتایج جستجو (%{count} مورد)
+      searching: در حال جستجو ...
       year: سال تولید
       year_from: ' از سال'
       year_to: تا سال

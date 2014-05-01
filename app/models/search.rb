@@ -18,7 +18,7 @@ class Search < ActiveRecord::Base
   end
 
   def count
-    @ads = ads.to_a.size
+    @ads = ads.size
   end
 
 private
@@ -27,7 +27,9 @@ private
 		ads = Ad.all.includes(:car_model, car_model: :make)
 		ads = ads.order(find_order) if order.present?
 		
-		ads = ads.where("year >= ?", year_from) if year_from.present?
+    ads = ads.where(active: true)
+		
+    ads = ads.where("year >= ?", year_from) if year_from.present?
 		ads = ads.where("year <= ?", year_to) if year_to.present?
 
 		ads = ads.where("price >= ?", price_from ) if price_from.present?
@@ -73,4 +75,5 @@ private
     end
     [lat, lng]
 	end
+
 end

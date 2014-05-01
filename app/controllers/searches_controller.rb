@@ -26,7 +26,7 @@ class SearchesController < ApplicationController
 
   def show
   	@search = Search.find(params[:id])
-  	@ads = @search.ads #.page(params[:page]).per_page(10)
+  	@ads = @search.ads.page(params[:page]).per_page(10)
   end
 
 private

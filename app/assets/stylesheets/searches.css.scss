@@ -8,4 +8,63 @@
       margin-bottom: 0px
     }
   }
+  #search_list{
+    font-size: .9em;
+    padding: 0;
+    a{
+      color: #696969;
+    }
+    .search_row{
+      display: block;
+      height: 80px;
+      border-top: 1px solid #F5F3F3;
+      background: rgba(247, 247, 247, 0.57);
+      margin: 1px;
+      border-left: 1px solid #F3F3F3;
+      border-right: 1px solid #F3F3F3;
+      &:hover {
+        background: #fff;
+        border-left: 1px solid #F1F1F1;
+        border-right: 1px solid #F1F1F1;
+      }
+      
+      .search_col{
+        padding: 10px 0;
+      }    
+      .thumb-title{
+        .thumb{
+          float: right;
+          margin-left: 7px;
+          img{
+            width: 82px;
+            height: 57px;
+            border: 1px solid #e0e0e0;
+            padding: 1px;
+          }
+        }
+        .title{
+          margin-bottom: 4px;
+        }
+        .truncate{
+          color: #8A8A8A;
+        }        
+      }  
+      .date, .price, .city{
+        padding-top: 28px;
+      }
+      .date{
+        div{
+        }
+      }
+      .price{
+        .amount{
+          float: left;
+          padding-left: 4px;
+        }
+      }
+    }
+    .search_row:last-child{
+      border-bottom: 1px solid #E7E7E7;;
+    }
+  }
 }

@@ -28,12 +28,13 @@ module ApplicationHelper
   end
 
   def price_range
-  	a = (1000000.0..10000000.0).step(1000000.0).map{|s| [ ("#{number_to_human s} #{t("toman")}") , s]}
-  	b = ((20000000.0..100000000.0).step(10000000.0)).map{|s| [("#{number_to_human s} #{t("toman")}") , s]}
-  	c = ((2000000000.0..10000000000.0).step(1000000000.0)).map{|s| [("#{number_to_human s} #{t("toman")}") , s]}
+    unit = 1000000.0
+  	a = ( ( (unit*1   )..(unit*10  ) ).step(unit*1)    ).map{|s| [("#{number_to_human s} #{t("toman")}") , s]}
+  	b = ( ( (unit*20  )..(unit*100 ) ).step(unit*10)   ).map{|s| [("#{number_to_human s} #{t("toman")}") , s]}
+    c = ( ( (unit*200 )..(unit*1000) ).step(unit*100)  ).map{|s| [("#{number_to_human s} #{t("toman")}") , s]}
+  	d = ( ( (unit*2000)..(unit*5000) ).step(unit*1000) ).map{|s| [("#{number_to_human s} #{t("toman")}") , s]}
 
-  	a.concat(b).concat(c)
-  	# raise
+  	a.concat(b).concat(c).concat(d)
   end
 
   def year_range
@@ -45,6 +46,19 @@ module ApplicationHelper
   def error_messages_for(object)
     render(:partial => 'application/error_messages',
       :locals => {:object => object})
+  end
+
+  def price_human amount
+    (amount != 0) ? number_to_human(amount, precision: 5, separator: "/")  : t("undifinded")
+  end
+
+  def date_human date
+    if date > DateTime.now - 24.hours
+      t "today"
+    else
+      "#{time_ago_in_words(date) } #{t("ago")}"
+    end
+
   end
 
 end

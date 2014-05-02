@@ -1,9 +1,28 @@
-<div class="title">
-	<%= ad.id %> -
-	<%= ad.car_modelـname %>, 
-	<%= ad.car_model_make_name %>,
-  <%= appropriate_year(ad) %> - 
-	<%= ad.location %>	- 
-	<%= number_to_currency ad.price, delimiter: ",", unit: t("toman") %>,
-	<%= link_to "more", ad %>
+<div class="thumb-title search_col col-xs-7 ">
+  <div class="thumb ">
+    <%= image_tag(ad.thumb_image, class: "img-responsive") %>
+  </div>
+
+  <div class="title ">
+    <%= ad.car_model_make_name %>,&nbsp;
+    <%= ad.car_modelـname %>, &nbsp;
+    <%= appropriate_year(ad) %>
+  </div>
+  <div class="truncate small">
+    <%= truncate_details ad %>
+  </div>
+</div>
+
+<div class="city search_col col-xs-2 ">
+  <div><%= ad.location %></div>
+</div>
+
+<div class="date search_col col-xs-2 ">
+  <div><%= date_human ad.created_at %></div>
+</div>
+
+<div class="price search_col col-xs-1 ">
+  <div class="amount">
+    <%= price_human ad.price  %>
+  </div>  
 </div>

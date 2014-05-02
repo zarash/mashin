@@ -53,7 +53,7 @@ private
   end
 
   def build_ad_image(ad, url)
-    unless url == "http://www.bama.ir/AdImages/Default-Car-Big.png"
+    unless url.include? "AdImages/Default-Car"
       ad.image_urls.build( url:  url)
       ad.save      
     end
@@ -62,6 +62,7 @@ private
   def build_ad_other_field_record(ad, url_single, ad_hash)
       ad.build_ad_other_field(
         source_url:  url_single,
+        thumb_img:   ad_hash[:thumb_img],
         tel:         ad_hash[:tel]
       )
       ad.save  
@@ -105,6 +106,8 @@ private
     ad_hash = {}
 
     ad_hash[:tel] = tel doc_single
+
+    ad_hash[:thumb_img] = thumb_img doc_single
 
     ad_hash[:price] = price doc_single
 
@@ -165,6 +168,10 @@ private
 
   def tel doc_single
     doc_single.css('#ctl00_cphMain_SelectedAdInfo1_lblCellphoneNumber').text
+  end
+
+  def thumb_img doc_single
+    doc_single.css('#Thumb1').first["src"].gsub "../..", "http://www.bama.ir" if  doc_single.css('#Thumb1').first
   end
 
   def price doc_single

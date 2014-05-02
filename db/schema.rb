@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20140501182122) do
     t.integer  "ad_id"
     t.string   "tel"
     t.string   "source_url"
+    t.string   "thumb_img"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

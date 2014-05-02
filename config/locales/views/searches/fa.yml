@@ -16,8 +16,8 @@ fa:
       order: ترتیب نمایش آگهی ها
       price_from: قیمت از
       price_to: تا قیمت
-      radius: شهرهای اطراف آن شهر به شعاع
-      radius around the city: شعاع کیلومتری را وارد کنید
+      radius: شهرهای اطراف به شعاع
+      radius around the city: شعاع کیلومتری
       search result: نتایج جستجو (%{count} مورد)
       searching: در حال جستجو ...
       year: سال تولید

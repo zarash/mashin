@@ -22,11 +22,4 @@ class Ad < ActiveRecord::Base
     end
   end
 
-  def thumb_image
-    if self.user_id.nil?
-      self.image_urls.first ? self.image_urls.first.url : IMAGES_PATH+"default_auto_thumb.gif"
-    else
-      
-    end
-  end
 end

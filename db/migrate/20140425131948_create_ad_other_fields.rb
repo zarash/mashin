@@ -4,6 +4,7 @@ class CreateAdOtherFields < ActiveRecord::Migration
       t.belongs_to :ad, index: true
       t.string :tel
       t.string :source_url
+      t.string :thumb_img
 
       t.timestamps
     end

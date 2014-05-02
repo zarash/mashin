@@ -10,7 +10,7 @@
 <p>girbox: <%= human_girbox(@ad.girbox) %></p>
 <p>detail: <%=  @ad.details %></p>
 <p>body color: <%=  COLORS[@ad.body_color_id] %></p>
-<p>internal color: <%=  COLORS[@ad.internal_color_id] %></p>
+<p>internal color: <%#=  COLORS[@ad.internal_color_id] %></p>
 
 <p>tel: <%=  @ad.ad_other_field.tel %></p>
 <%= link_to "source", @ad.ad_other_field.source_url %>

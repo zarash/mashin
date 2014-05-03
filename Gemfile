@@ -18,10 +18,11 @@ gem "jalalidate", "~> 0.3.3"
 gem 'awesome_print'
 gem 'exception_notification'
 gem 'will_paginate'
-gem 'will_paginate-bootstrap', '~> 1.0.0'
+# gem 'will_paginate-bootstrap', '~> 1.0.0'
 gem 'gmaps4rails'
 gem 'ckeditor', '~> 4.0.11'
 gem 'non-stupid-digest-assets', '~> 1.0.4'
+gem 'jquery-turbolinks'
 
 gem 'nokogiri', '~> 1.6.1'
 gem  'whenever', require: false

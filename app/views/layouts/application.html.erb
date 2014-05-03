@@ -4,13 +4,16 @@
 
 <div class="container">
 
-	<%= render 'header' %>
-  <div id="siteContent">
-    <%= flash_creator flash %>
-    <%= yield %>  
+  <%= render 'header' %>
+
+  <div id="main_container">
+
+    <div id="siteContent">
+      <%= flash_creator flash %>
+      <%= yield %>  
+    </div>
+    
   </div>
-  
+
+  <%= render 'footer' %>
 </div>
-
-<%= render 'footer' %>
-

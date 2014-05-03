@@ -11,9 +11,10 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery.validate
 //= require localization/messages_fa
 //= require jquery_ujs
 //= require bootstrap.min
-//= require turbolinks
 //= require_tree .
+//= require turbolinks

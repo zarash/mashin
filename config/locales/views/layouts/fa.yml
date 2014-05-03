@@ -1,9 +1,35 @@
 fa:
   layouts:
     application:
-      Otoyabi: اتویابی
+      Otoyabi: اُتویابی
+  otoyabi: اتویابی
+  slogan: مرجع خریدو فروش خودرو صفر و کارکرده
   kilometer: کیلومتر
   undifinded: "تماس بگيريد"
   today: امروز
   yesterday: دیروز
   ago: قبل
+  toman: تومان
+
+  brand: برند خودرو
+  car_model: مدل
+  year: سال ساخت
+  price: قیمت
+  millage: کارکرد
+  usage_type: وضعیت خودرو
+  girbox: گیربکس
+  body_color: رنگ بدنه
+  internal_color: رنگ داخلی
+  details: توضیحات
+  fuel: نوع سوخت
+  vehicle: خودرو
+  sell: فروش
+  buy: خرید
+  First registration from: سال ساخت
+  location: آدرس
+  contact_tel: شماره تماس
+
+  will_paginate:
+    previous_label: "قبلی"
+    next_label: "بعدی"
+    page_gap: "&hellip;"

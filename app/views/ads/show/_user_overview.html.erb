@@ -1,0 +1,17 @@
+<div class="panel panel-default">
+  <div class="panel-heading no_background">
+    <h3 class="panel-title"><%= t ".seller_details" %></h3>
+  </div>
+  <div class="panel-body">
+    <div class="col-xs-5"><%= t"location" %></div>
+    <div class="col-xs-7"><%= @ad.location %></div>
+  
+    <div class="col-xs-5"><%= t"contact_tel" %></div>
+    <div class="col-xs-7"><%= @ad.ad_other_field.tel %></div>
+  
+    <%#= link_to "source", @ad.ad_other_field.source_url %>
+
+  </div>
+</div>
+
+ 

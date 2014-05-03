@@ -49,7 +49,7 @@ module ApplicationHelper
   end
 
   def price_human amount
-    (amount != 0) ? number_to_human(amount, precision: 5, separator: "/")  : t("undifinded")
+    (amount != 0) ? number_to_human(amount, precision: 6, separator: "/")  : t("undifinded")
   end
 
   def date_human date

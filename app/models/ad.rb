@@ -10,7 +10,7 @@ class Ad < ActiveRecord::Base
   belongs_to :car_model
   belongs_to :scrap
 
-  def car_modelـname
+  def car_model_name
     Rails.cache.fetch([:car_model, car_model_id, :name], expires_in: 5.minutes) do 
       car_model.name
     end

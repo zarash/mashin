@@ -4,6 +4,11 @@
   </div>
   <div id="search_list" class="col-sm-7 col-md-9">
   	<% if @ads %>
+
+      <div class="apple_pagination">
+        <%= will_paginate @ads, :container => false,inner_window: 3, outer_window: 0 %>
+      </div>
+
   		<% @ads.each do |ad| %>
       <a href="<%= ad_path(ad) %>" >
   			<div class="search_row">
@@ -11,6 +16,11 @@
   			</div>
       </a>
   		<% end %>
+
+
+     <div class="apple_pagination">
+        <%= will_paginate @ads, :container => false,inner_window: 3, outer_window: 0 %>
+      </div>
   	<% end %>
   </div>
 </div>

@@ -1,0 +1,20 @@
+<div class="panel panel-default">
+  <div class="panel-heading no_background">
+    <h3 class="panel-title"><%= t ".car_details" %></h3>
+  </div>
+  <div class="panel-body">
+    <%= ad_show_car_detail_row "brand", @ad.car_model_make_name %>
+    <%= ad_show_car_detail_row "car_model", @ad.car_model_name %>
+    <%= ad_show_car_detail_row "year", appropriate_year(@ad) %>
+    <%= ad_show_car_detail_row "price", price_human(@ad.price) %>
+    <%= ad_show_car_detail_row "millage", number_to_currency(@ad.millage,unit: t("kilometer"), delimiter: "/") %>
+    <%= ad_show_car_detail_row "fuel", fuel_human(@ad)  %>
+    <%= ad_show_car_detail_row "usage_type", usage_type_human(@ad) %>
+    <%= ad_show_car_detail_row "girbox", girbox_human(@ad) %>
+    <%= ad_show_car_detail_row "body_color", color_human(@ad.body_color_id) %>
+    <%= ad_show_car_detail_row "internal_color", color_human(@ad.internal_color_id) %>
+    <%= ad_show_car_detail_row "details", @ad.details %>
+
+  </div>
+</div>
+

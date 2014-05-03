@@ -1,0 +1,25 @@
+ <div class="panel panel-default">
+  <div class="panel-body">
+
+     <div id="big_images">
+      <% @ad.image_urls.each do |img| %>
+        <div class="big_image">
+          <%= image_tag img.url, class: "img-responsive", alt: "#{t"sell"} #{t"vehicle"} #{img.ad.car_model_make_name} #{img.ad.car_model_name}" %>
+        </div>
+      <% end %>
+    </div>
+
+    <% if @ad.image_urls.any? %>
+      <div id="thumbs">
+        <% @ad.image_urls.each do |img| %>
+          <div class="col-xs-3 thumb">
+            <%= image_tag img.url, class: "img-responsive" %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+
+
+
+  </div>
+</div>

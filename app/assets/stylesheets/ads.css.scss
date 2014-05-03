@@ -1,3 +1,56 @@
-// Place all the styles related to the ads controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+#ad_show{
+  .title{
+    margin: 0;
+    font-size: 1.7em;
+    color: #f4645f;
+  }
+  .no_background{
+    background-color: transparent;
+  }
+  .internal-section{
+    padding: 0 5px;
+    .panel-body{
+      padding: 9px;
+    }
+  }
+  #main-panel-body{
+    padding: 10px 4px;
+    #image_section{
+      #big_images{
+        .big_image{
+          width: 100%;
+          display: none;
+          img{
+            width: 100%;
+            border: 1px solid #aaa;
+            padding: 1px;
+            border-radius: 3px;
+          }
+        }
+        .big_image:first-child{
+          display: block;
+        }
+      }
+      #thumbs{
+        border: 2px solid #EEE;
+        overflow: hidden;
+        .thumb{
+          padding: 3px;
+          img{
+            border: 2px solid #DBDBDB;
+            padding: 1px;
+            border-radius: 2px;
+          }
+          .active{
+            border: 2px solid #855EFF;
+          }
+        }
+
+      }
+    }//#image_section
+  } //#main-panel-body
+}
+
+.my_active img{
+  border: 2px solid #f4645f !important;
+}

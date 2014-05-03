@@ -20,7 +20,7 @@ gem 'exception_notification'
 gem 'will_paginate'
 # gem 'will_paginate-bootstrap', '~> 1.0.0'
 gem 'gmaps4rails'
-gem 'ckeditor', '~> 4.0.11'
+# gem 'ckeditor', '~> 4.0.11'
 gem 'non-stupid-digest-assets', '~> 1.0.4'
 gem 'jquery-turbolinks'
 

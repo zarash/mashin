@@ -11,4 +11,4 @@
 # if you're sharing your code publicly.
 Mashin::Application.config.secret_key_base = ENV['SECRET_TOKEN']
 
-# '444fbbcc34ac3c6ee0941c17da29a4386f0ef3f5eee3257ffa1cb1f2431e7db9dc9b418b2affc7dd2931ebee01d07ac3e3113445ab49dc1742a5d457e46e662e'
+#'444fbbcc34ac3c6ee0941c17da29a4386f0ef3f5eee3257ffa1cb1f2431e7db9dc9b418b2affc7dd2931ebee01d07ac3e3113445ab49dc1742a5d457e46e662e'

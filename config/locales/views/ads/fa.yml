@@ -1,6 +1,7 @@
 fa:
   ads:
     show:
+      back_to_search: برگشت
       car_details:
         car_details: مشخصات خودرو
       recommended_ads:

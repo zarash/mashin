@@ -12,9 +12,9 @@ class SearchesController < ApplicationController
   	@search = Search.new(search_params)
   	@search.year_from = correct_date(search_params[:year_from]) if search_params[:year_from].present?
   	@search.year_to   = correct_date( search_params[:year_to])  if search_params[:year_to].present?
-
     respond_to do |format|
       if @search.save
+        cookies[:last_search] = @search.id
         format.html { redirect_to @search }
         format.json { render action: 'show', status: :created, location: @search }
       else

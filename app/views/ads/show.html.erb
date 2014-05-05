@@ -1,6 +1,13 @@
 <div id="ad_show" class="panel panel-default">
 
   <div class="panel-heading">
+
+    <%= link_to last_search do %>
+      <div class="back_to_search pull-left btn btn-link">
+        <span><%= t(".back_to_search") %></span>
+        <span class="glyphicon glyphicon-backward"></span>
+      </div>
+    <% end %>
     <h2 class="title">
       <%= t"vehicle" %> <%= @ad.make_name %>&nbsp;
       <%= @ad.car_model_name %>،&nbsp;

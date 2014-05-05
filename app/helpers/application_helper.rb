@@ -62,4 +62,8 @@ module ApplicationHelper
 
   end
 
+  def last_search
+    cookies[:last_search] ? Search.find( cookies[:last_search]) : root_url
+  end
+
 end

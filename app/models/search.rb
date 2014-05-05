@@ -25,7 +25,7 @@ private
 
 	def find_ads
 		ads = Ad.all.includes(:car_model, car_model: :make)
-		ads = ads.order(find_order) if order.present?
+		ads = ads.order(find_order) 
 		
     ads = ads.where(active: true)
 		

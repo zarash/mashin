@@ -39,7 +39,8 @@ module ApplicationHelper
 
   def year_range
   	a = [[ "", ""]]
-  	b = ( 1330..(JalaliDate.new(Date.today).year) ).map{|s| [ s, s]}
+    this_year = JalaliDate.new(Date.today).year
+  	b = ( (this_year).downto(1330) ).map{|s| [ s, s]}
   	a.concat b
   end
 

@@ -8,6 +8,7 @@ class Ad < ActiveRecord::Base
 
   belongs_to :user
   belongs_to :car_model
+  belongs_to :make
   belongs_to :scrap
 
   def car_model_name
@@ -16,9 +17,17 @@ class Ad < ActiveRecord::Base
     end
   end
 
-  def car_model_make_name
-    Rails.cache.fetch([:car_model, car_model_id, :make, :name], expires_in: 5.minutes) do 
-      car_model.make.name
+  def make_name
+    Rails.cache.fetch([:make, :make, :name], expires_in: 5.minutes) do 
+      make.name
+    end
+  end
+
+  def big_images
+    if self.user_id.nil?
+      self.image_urls
+    else
+      # self.images
     end
   end
 

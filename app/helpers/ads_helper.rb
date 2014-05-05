@@ -52,4 +52,12 @@ module AdsHelper
     html.html_safe 
   end
 
+  def ad_image ad, img
+    if ad.user_id.nil?
+      image_tag img.url, class: "img-responsive", alt: "#{t"sell"} #{t"vehicle"} #{img.ad.make_name} #{img.ad.car_model_name}"
+    else
+      "آگهی خودمان"      
+    end
+  end
+
 end

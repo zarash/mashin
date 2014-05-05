@@ -1,0 +1,11 @@
+<% if @ad.big_images.any? %>
+  <% @ad.big_images.each do |img| %>
+    <div class="big_image">
+      <%= ad_image @ad, img %>
+    </div>
+  <% end %>   
+<% else %>
+    <div class="big_image">
+      <%=  image_tag IMAGES_PATH+"default_auto_big.gif", class: "img-responsive"  %>
+    </div>
+<% end %>

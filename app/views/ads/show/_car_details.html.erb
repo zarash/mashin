@@ -3,7 +3,7 @@
     <h3 class="panel-title"><%= t ".car_details" %></h3>
   </div>
   <div class="panel-body">
-    <%= ad_show_car_detail_row "brand", @ad.car_model_make_name %>
+    <%= ad_show_car_detail_row "brand", @ad.make_name %>
     <%= ad_show_car_detail_row "car_model", @ad.car_model_name %>
     <%= ad_show_car_detail_row "year", appropriate_year(@ad) %>
     <%= ad_show_car_detail_row "price", price_human(@ad.price) %>

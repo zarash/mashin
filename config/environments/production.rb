@@ -80,4 +80,25 @@ Mashin::Application.configure do
   config.log_formatter = ::Logger::Formatter.new
 
 
+  config.action_mailer.smtp_settings = {
+    address: "smtp.gmail.com",
+    port: 587,
+    # :port => 25,
+    domain: 'otoyabi.com',
+    authentication: :plain,
+    enable_starttls_auto: true,
+    # user_name: ENV['GMAIL_USER_NAME'],
+    # password: ENV['GMAIL_PASSWORD']
+    user_name: 'hamsafaryab@gmail.com',
+    password: 'pectaiyocwaodpjq'
+  }
+
+
+  config.middleware.use ExceptionNotification::Rack,
+    :email => {
+      # :email_prefix => "[Whatever] ",
+      :sender_address => %{"اتویابی notifier" <noreply@hamsafaryab.com>},
+      :exception_recipients => %w{hamsafaryab@gmail.com}
+    }
+
 end

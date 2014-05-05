@@ -3,5 +3,7 @@ fa:
     show:
       car_details:
         car_details: مشخصات خودرو
+      recommended_ads:
+        recommended_ads: خودروهای مشابه
       user_overview:
         seller_details: مشخصات فروشنده

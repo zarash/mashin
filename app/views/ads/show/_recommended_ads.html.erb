@@ -1,0 +1,28 @@
+<div class="panel panel-default">
+  <div class="panel-heading no_background">
+    <h3 class="panel-title"><%= t ".recommended_ads" %></h3>
+  </div>
+
+  <div class="panel-body">
+    <% @recommended_ads.each do |ad| %>
+      <div class="recommended_ad  col-sm-3 col-xs-6">
+        <div class="panel panel-default">
+          <%= link_to ad do %>
+            <div class="panel-body">
+
+              <div class="col-sm-6">
+                <div class="row"><%= thumb_image ad  %></div>
+              </div>
+              <div class="col-sm-6">
+                <p><%= ad.make_name %></p>
+                <p><%= ad.car_model_name %></p>
+                <p><%= appropriate_year(@ad) %></p>
+                <p><%= price_human(@ad.price) %></p>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

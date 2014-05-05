@@ -42,11 +42,11 @@ module AdsHelper
     ad.fuel.present? ? FUEL_ARR[ ad.fuel ] : "-"
   end
 
-  def ad_show_car_detail_row title, val
+  def ad_show_car_detail_row col1=4, col2=8, title, val
     html = <<-HTML
       <div class="row">
-        <div class="col-xs-4">#{t title}</div>
-        <div class="col-xs-8">#{val}</div>
+        <div class="col-xs-#{col1}">#{t title}</div>
+        <div class="col-xs-#{col2}">#{val}</div>
       </div>
     HTML
     html.html_safe 

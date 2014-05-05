@@ -1,4 +1,5 @@
 class Ad < ActiveRecord::Base
+  default_scope { where(active: true) }
 
   geocoded_by :location
   # after_validation :geocode, if: ->(obj){ obj.location.present? and obj.location_changed? }
@@ -21,6 +22,25 @@ class Ad < ActiveRecord::Base
     Rails.cache.fetch([:make, make_id, :name], expires_in: 5.minutes) do 
       make.name
     end
+  end
+
+  def recommended_ads count
+    ads = Ad.all
+    ads = ads.where(car_model_id: self.car_model_id)
+    ads = ads.where.not(id: self.id)
+    ads = ads.where("created_at > ?", 10.days.ago)
+    ads = ads.order("RANDOM()")
+    ads = ads.limit(count)
+    if ads.size < 4
+      ids = (ads.ids << self.id)
+      ads2 = Ad.where(make_id: self.make_id)
+      ads2 = ads2.where.not(id: ids)
+      ads2 = ads2.where("created_at > ?", 10.days.ago)
+      ads2 = ads2.order("RANDOM()")
+      ads2 = ads2.limit(count - ads.size)
+      ads = ads.concat ads2
+    end
+    ads.uniq
   end
 
   def big_images

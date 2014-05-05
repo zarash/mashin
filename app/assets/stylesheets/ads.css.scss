@@ -1,3 +1,25 @@
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 750px) { 
+  #ad_show{
+    .panel{
+      margin-bottom: 0px;
+    }    
+    #user_overview, #car_details{
+      position: absolute;
+      left: 0;
+      bottom: 9px;
+      top: 9px;
+      overflow-y: auto;
+      .panel{
+        height: 100%;
+      }
+    }
+    #car_details{
+      left: 25%;
+    }
+  }
+}
+
 #ad_show{
   .title{
     margin: 0;
@@ -14,6 +36,7 @@
     }
   }
   #main-panel-body{
+    position: relative;
     padding: 10px 4px;
     #image_section{
       #big_images{
@@ -23,7 +46,7 @@
           img{
             width: 100%;
             min-height: 294px;
-            border: 1px solid #aaa;
+            border: 1px solid #D3D3D3;
             padding: 1px;
             border-radius: 3px;
           }
@@ -50,6 +73,32 @@
       }
     }//#image_section
   } //#main-panel-body
+  #recommended_ads-panel-body{
+    padding: 1px 7px 7px 4px;
+    .recommended_ad{
+      a{
+        color: #111;
+        .panel-body{
+          &:hover {
+            background: #e6e6e6;
+          }
+        }
+        .panel-body {
+          padding: 4px;
+          img{
+            width: 134px;
+            height: 100px; 
+            border: 1px solid #D3D3D3;
+            padding: 1px;
+            border-radius: 3px;
+          }
+          p{
+            font-size: .8em;
+          }
+        }
+      }
+    }
+  }
 }
 
 .my_active img{

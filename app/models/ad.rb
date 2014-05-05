@@ -18,7 +18,7 @@ class Ad < ActiveRecord::Base
   end
 
   def make_name
-    Rails.cache.fetch([:make, :make, :name], expires_in: 5.minutes) do 
+    Rails.cache.fetch([:make, make_id, :name], expires_in: 5.minutes) do 
       make.name
     end
   end

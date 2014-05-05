@@ -1,3 +1,31 @@
-// Place all the styles related to the homes controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+#home_show{
+  background: url("https://s3-eu-west-1.amazonaws.com/otoyabi/static_files/images/home_background.jpg") no-repeat;
+  overflow: hidden;
+  #search_form{
+    margin: 5px;
+    height: 338px;
+    background: #F3F3F3;
+    padding-bottom: 3px;
+    .left{
+      padding-right: 5px;
+    }
+    .right{
+      padding-left: 5px;
+    }
+    label{
+      margin-bottom: 0px;
+    }
+    .input{
+      margin-bottom: 5px;
+    }
+  }
+  #qoute{
+    padding: 0;
+    background: rgba(17, 17, 17, 0.52);
+    color: #FFF;
+    border-radius: 4px;
+    padding: 2px 14px 17px;
+    margin: 37px 5px;
+    text-shadow: 2px 4px 4px #000;
+  }
+}

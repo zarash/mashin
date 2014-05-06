@@ -1,27 +1,27 @@
 fa:
   brand: برند
   car_model: مدل خودرو
-  order: ترتیب نمایش آگهی ها
-  price_from: قیمت از
-  price_to: تا قیمت
   cheap: ارزانترین
   enter the search city name: شهر مورد جستجو
   expencive: گرانترین
-  new: به روز ترین
   kilometre: کیلومتر
   km: کیلومتری
   location: شهر
+  milion_toman: میلیون تومان
+  new: به روز ترین
+  order: ترتیب نمایش آگهی ها
+  price_from: قیمت از
+  price_to: تا قیمت
   radius: شهرهای اطراف به شعاع
   radius around the city: شعاع کیلومتری
   search result: نتایج جستجو (%{count} مورد)
-  year: سال تولید
-  year_from: ' از سال'
-  year_to: تا سال
-  milion_toman: میلیون تومان
-  searching: در حال جستجو ...
-
   searches:
     search_form:
       millage_from: کارکرد از
       millage_to: کارکرد تا
-
+    show:
+      no_resault_message: موردی با این مشخصات یافت نشد!
+  searching: در حال جستجو ...
+  year: سال تولید
+  year_from: ' از سال'
+  year_to: تا سال

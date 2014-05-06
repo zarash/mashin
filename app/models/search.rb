@@ -29,8 +29,8 @@ private
 		
     ads = ads.where(active: true)
 		
-    ads = ads.where("year >= ?", year_from) if year_from.present?
-		ads = ads.where("year <= ?", year_to) if year_to.present?
+    ads = ads.where("year >= ?", year_from - 1.months) if year_from.present?
+		ads = ads.where("year <= ?", year_to   + 11.months) if year_to.present?
 
 		ads = ads.where("price >= ?", price_from ) if price_from.present?
 		ads = ads.where("price <= ?", price_to ) if price_to.present?

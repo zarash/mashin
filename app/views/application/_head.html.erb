@@ -1,7 +1,13 @@
 <!DOCTYPE html>
 <html lang="fa">
 <head>
-  <title><%= t".Otoyabi" %></title>
+  <title>
+    <% if @page_title %>
+      <%= @page_title %>
+    <% else %>
+      <%= t"site_name" %>
+    <% end %>
+  </title>
   <meta name="LANGUAGE" content="fa" />
   <meta name="description" content="خودرو کارکرده &#10004; خودرو صفر &#10004; خرید و فروش خودرو &#10004; فروش خودرو &#10004; خرید خودرو &#10004;">
 

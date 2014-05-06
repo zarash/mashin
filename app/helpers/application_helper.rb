@@ -66,4 +66,11 @@ module ApplicationHelper
     cookies[:last_search] ? Search.find( cookies[:last_search]) : root_url
   end
 
+  def title_creator search
+    title = "خرید و فروش خودرو "
+    title = title + " #{search.make.name}"  if search.make_id
+    title = title + " #{search.car_model.name}" if search.car_model_id     
+    title
+  end
+
 end

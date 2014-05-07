@@ -11,10 +11,10 @@
     <%= ad_show_car_detail_row "fuel", fuel_human(@ad)  %>
     <%= ad_show_car_detail_row "usage_type", usage_type_human(@ad) %>
     <%= ad_show_car_detail_row "girbox", girbox_human(@ad) %>
-    <%= ad_show_car_detail_row "body_color", color_human(@ad.body_color_id) %>
-    <%= ad_show_car_detail_row "internal_color", color_human(@ad.internal_color_id) %>
+    <%= ad_show_car_detail_row "body_color", @ad.body_color_name %>    
+    <%= ad_show_car_detail_row "internal_color", @ad.internal_color_name %>
     <%= ad_show_car_detail_row "details", @ad.details %>
-
   </div>
 </div>
 
+    

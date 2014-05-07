@@ -1,6 +1,6 @@
 set :output, "#{path}/log/cron.log"
 
-every 60.minutes do
+every 2.hours do
   rake "bama"
 end
 

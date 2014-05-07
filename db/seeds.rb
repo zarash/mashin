@@ -1,10 +1,51 @@
-AdOtherField.delete_all
-Ad.delete_all
-CarModel.delete_all
-ImageUrl.delete_all
-Location.delete_all
-Make.delete_all
-Scrap.delete_all
+# AdOtherField.delete_all
+# Ad.delete_all
+# CarModel.delete_all
+# ImageUrl.delete_all
+# Location.delete_all
+# Make.delete_all
+# Scrap.delete_all
+
+Color.create([
+    {   id: 0, name: "آبي"   },
+    {   id: 1, name: "قرمز"   },
+    {   id: 2, name: "سبز"   },
+    {   id: 3, name: "نارنجي"   },
+    {   id: 4, name: "سفيد"   },
+    {   id: 5, name: "مشکي"   },
+    {   id: 6, name: "آلبالوئی"   },
+    {   id: 7, name: "اخرائی"   },
+    {   id: 8, name: "اطلسی"   },
+    {   id: 9, name: "بادمجانی"   },
+    {   id: 10, name: "بژ"   },
+    {   id: 11, name: "بنفش"   },
+    {   id: 12, name: "پوست پیازی"   },
+    {   id: 13, name: "خاکستری"   },
+    {   id: 14, name: "خاکی"   },
+    {   id: 15, name: "زرد"   },
+    {   id: 16, name: "زرشکی"   },
+    {   id: 17, name: "سربی"   },
+    {   id: 18, name: "سرمه ای"   },
+    {   id: 19, name: "صورتی"   },
+    {   id: 20, name: "طلائی"   },
+    {   id: 21, name: "عدسی"   },
+    {   id: 22, name: "عنابی"   },
+    {   id: 23, name: "قهوه ای"   },
+    {   id: 24, name: "کرم"   },
+    {   id: 25, name: "مسی"   },
+    {   id: 26, name: "نقرآبی"   },
+    {   id: 27, name: "نقره ای"   },
+    {   id: 28, name: "نوک مدادی"   },
+    {   id: 29, name: "یشمی"   },
+    {   id: 30, name: "مارون"   },
+    {   id: 31, name: "طوسی"   },
+    {   id: 32, name: "زیتونی"   },
+    {   id: 33, name: "شتری"   },
+    {   id: 34, name: "برنز"   },
+    {   id: 35, name: "دلفینی"   },
+    {   id: 36, name: "گیلاسی"   },
+    {   id: 37, name: "یاسی"   }
+])
 # Make.create([
 # 		{   id: 9, name: "آئودی"   },
 # 		{   id: 60, name: "آریا"   },

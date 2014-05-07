@@ -8,7 +8,10 @@ Mashin::Application.routes.draw do
   resources :makes
 
   resources :scraps, only: [:show] do
-    get "scrap" , on: :collection
+    collection do
+      get "bama" 
+      get "takhtegaz" 
+    end
   end
 
   resources :ads 

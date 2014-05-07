@@ -23,15 +23,13 @@ module AdsHelper
   end
 
   def appropriate_year(ad)
-    ad.year_format ? JalaliDate.new(ad.year).year : ad.year.year 
+    if ad.year
+      ad.year_format ? JalaliDate.new(ad.year).year : ad.year.year 
+    end
   end
 
   def girbox_human ad
     ad.girbox? ? GIRBOX_ARR[ (ad.girbox ? 1 : 0)] : "-"
-  end
-
-  def color_human color_id
-    color_id.present? ? COLORS[color_id] : "-"
   end
 
   def usage_type_human ad

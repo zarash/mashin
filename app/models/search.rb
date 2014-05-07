@@ -59,7 +59,7 @@ private
 	end
 
 	def find_radius
-		 self.radius ? self.radius : 10
+		 self.radius ? self.radius : 100
 	end
 
 	def find_location

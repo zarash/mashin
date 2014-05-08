@@ -6,7 +6,7 @@ class ScrapsController < ApplicationController
 
   def scrap
     scrap = Scrap.new
-    scrap.url = "http://#{params[:scrap][:name]}.herokuapp.com/ads?page=my_page_counter"
+    scrap.url = "http://serene-refuge-7608.herokuapp.com/ads"
     scrap.name = params[:scrap][:name]
     scrap.save
 

@@ -7,7 +7,7 @@
     <%= ad_show_car_detail_row 5,7, "contact_tel", @ad.ad_other_field.tel %>
     <%= ad_show_car_detail_row 5,7, "created_date", date_human(@ad.created_at) %>
   
-    <%= link_to "source", @ad.ad_other_field.source_url %>
+    <%= link_to "source", @ad.ad_other_field.source_url, class: "source_url" %>
   </div>
 </div>
 

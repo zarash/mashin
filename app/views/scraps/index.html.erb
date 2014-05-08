@@ -1,0 +1,4 @@
+<%= form_for @scrap, url: scrap_scraps_path do |f| -%>
+  <%= f.text_field :name %>
+  <%= f.submit "Submit", :disable_with => 'Submiting...' %>
+<% end %>

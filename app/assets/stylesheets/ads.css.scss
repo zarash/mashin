@@ -51,7 +51,7 @@
           display: none;
           img{
             width: 100%;
-            min-height: 294px;
+            height: 294px;
             border: 1px solid #D3D3D3;
             padding: 1px;
             border-radius: 3px;
@@ -70,6 +70,8 @@
             border: 2px solid #DBDBDB;
             padding: 1px;
             border-radius: 2px;
+            height: 70px;
+            width: 103px;
           }
           .active{
             border: 2px solid #855EFF;
@@ -78,6 +80,11 @@
 
       }
     }//#image_section
+    #user_overview{
+      .source_url{
+        color: #fff;
+      }
+    }
   } //#main-panel-body
   #recommended_ads-panel-body{
     padding: 1px 7px 7px 4px;

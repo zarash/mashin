@@ -7,8 +7,9 @@ Mashin::Application.routes.draw do
 
   resources :makes
 
-  resources :scraps, only: [:show] do
+  resources :scraps, only: [:show, :index] do
     collection do
+      post "scrap" 
       get "bama" 
       get "takhtegaz" 
     end

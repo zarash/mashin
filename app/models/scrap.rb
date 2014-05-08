@@ -3,15 +3,11 @@ class Scrap < ActiveRecord::Base
   has_many   :ads
 
   def sweep
-    page_num = 1
     self.count = 0
-    url = self.url
     @terminate = false
     begin 
-      url = self.url.gsub "my_page_counter", "#{page_num}"
-      doc = Nokogiri::HTML(open(url))
+      doc = Nokogiri::HTML(open(self.url))
       single_page_sweep(doc)
-      # page_num = page_num +1 
       break if @terminate 
     end while true 
   end

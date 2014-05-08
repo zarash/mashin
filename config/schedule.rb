@@ -1,7 +1,7 @@
 set :output, "#{path}/log/cron.log"
 
-every 2.hours do
-  rake "bama"
+every 30.minutes do
+  rake "scrap"
 end
 
 # Use this file to easily define all of your cron jobs.

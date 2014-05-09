@@ -73,4 +73,15 @@ module ApplicationHelper
     title
   end
 
+  def ad_title ad
+    if ad.ad_other_field.title.nil?
+      title = "<span class='pull-right title_element'>#{ad.make_name}، &nbsp;</span>"  if ad.make_id
+      title = title + " <span class='pull-right title_element'>#{ad.car_model_name}،&nbsp;</span>" if ad.car_model_id     
+      title = title + " <span class='pull-right title_element'>#{appropriate_year(ad) }</span> <br>" if ad.year           
+    else
+      title = ad.ad_other_field.title
+    end
+    title.html_safe
+  end
+
 end

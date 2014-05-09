@@ -57,5 +57,12 @@ module AdsHelper
       "آگهی خودمان"      
     end
   end
-
+  
+  def ad_tel ad
+    if ad.user_id
+      ad.user.mobile
+    else
+      ad.ad_other_field.tel  
+    end
+  end
 end

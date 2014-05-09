@@ -10,9 +10,7 @@
       </div>
     <% end %>
     <h2 class="title">
-      <%= t"vehicle" %> <%= @ad.make_name %>&nbsp;
-      <%= @ad.car_model_name %>،&nbsp;
-      <%= t "First registration from" %> <%= appropriate_year(@ad) %>
+      <%= ad_title @ad %>
     </h2>
   </div>
 

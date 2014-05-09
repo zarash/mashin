@@ -1,8 +1,8 @@
 set :output, "#{path}/log/cron.log"
 
-every 30.minutes do
-  rake "scrap"
-end
+# every 30.minutes do
+#   rake "scrap"
+# end
 
 # Use this file to easily define all of your cron jobs.
 #

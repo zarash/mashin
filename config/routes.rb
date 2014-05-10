@@ -1,5 +1,6 @@
 Mashin::Application.routes.draw do
   
+  devise_for :users
   root 'homes#show'
   resource :homes, only: [:show]
   resources :searches, only: [:show, :create, :index]

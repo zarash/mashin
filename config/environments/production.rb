@@ -101,4 +101,6 @@ Mashin::Application.configure do
       :exception_recipients => %w{hamsafaryab@gmail.com}
     }
 
+  config.action_mailer.default_url_options = { host: 'otoyabi.com' }
+
 end

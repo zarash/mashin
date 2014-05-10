@@ -4,7 +4,7 @@ task :scrap => :environment do
   require 'open-uri'
  
   scrap = Scrap.new
-  scrap.url = "http://serene-refuge-7608.herokuapp.com/ads"
+  scrap.url = "http://obscure-woodland-9401.herokuapp.com/ads"
   scrap.save
   scrap.sweep
 end

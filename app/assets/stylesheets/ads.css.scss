@@ -88,29 +88,34 @@
   } //#main-panel-body
   #recommended_ads-panel-body{
     padding: 1px 7px 7px 4px;
-    .recommended_ad{
-      a{
-        color: #111;
-        .panel-body{
-          &:hover {
-            background: #e6e6e6;
+    .wrapper-panel{
+      padding: 0 2px;
+      .recommended_ad{
+        padding: 5px 0;
+        a{
+          color: #111;
+          .panel-body{
+            &:hover {
+              background: #e6e6e6;
+            }
           }
-        }
-        .panel-body {
-          padding: 4px;
-          img{
-            width: 134px;
-            height: 100px; 
-            border: 1px solid #D3D3D3;
-            padding: 1px;
-            border-radius: 3px;
-          }
-          p{
-            font-size: .8em;
+          .panel-body {
+            padding: 4px;
+            img{
+              width: 134px;
+              height: 88px; 
+              border: 1px solid #D3D3D3;
+              padding: 1px;
+              border-radius: 3px;
+            }
+            p{
+              font-size: .8em;
+              margin: 0 0 7px;
+            }
           }
         }
       }
-    }
+    } //.wrapper-panel{
   }
 }
 

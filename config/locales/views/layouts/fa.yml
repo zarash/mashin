@@ -28,7 +28,7 @@ fa:
   location: آدرس
   contact_tel: شماره تماس
   created_date: تاریخ آگهی
-
+  see_from_reference: از سایت منبع
   will_paginate:
     previous_label: "قبلی"
     next_label: "بعدی"

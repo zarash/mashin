@@ -62,7 +62,11 @@ module AdsHelper
     if ad.user_id
       ad.user.mobile
     else
-      ad.ad_other_field.tel  
+      if ad.ad_other_field.source_url.include? "takhtegaz.com"
+        link_to t("see_from_reference"), ad.ad_other_field.source_url, target: "_blank"
+      else
+        ad.ad_other_field.tel  
+      end
     end
   end
 end

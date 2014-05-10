@@ -18,7 +18,7 @@ private
       doc.css('.ads').each do |row|
         delete_path = row.at_css(".base_fields .show a")["href"]
         if skip_condition? row
-          Nokogiri::HTML(open(delete_path)) # just for deletation
+          # Nokogiri::HTML(open(delete_path)) # just for deletation
           next
         end
         @ad_hash = {}
@@ -27,7 +27,7 @@ private
         extract_other_fields(row)
         build_ad_other_field_record(ad)
         extract_and_build_images(ad, row)
-        doc_single = Nokogiri::HTML(open(delete_path))
+        # doc_single = Nokogiri::HTML(open(delete_path))
       end
     else
       @terminate = true

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140510131406) do
+ActiveRecord::Schema.define(version: 20140511112343) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 20140510131406) do
     t.decimal  "price"
     t.integer  "millage"
     t.integer  "fuel"
-    t.integer  "usage_type",        default: 10
+    t.integer  "usage_type",        default: 0
     t.boolean  "girbox",            default: false
     t.boolean  "active",            default: false
     t.text     "details"

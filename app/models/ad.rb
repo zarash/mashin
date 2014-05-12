@@ -28,13 +28,13 @@ class Ad < ActiveRecord::Base
 
   def car_model_name
     Rails.cache.fetch([:car_model, car_model_id, :name], expires_in: 5.minutes) do 
-      car_model.name
+      car_model.try(:name)
     end
   end
 
   def make_name
     Rails.cache.fetch([:make, make_id, :name], expires_in: 5.minutes) do 
-      make.name
+      make.try(:name)
     end
   end
 

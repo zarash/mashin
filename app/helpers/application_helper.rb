@@ -24,7 +24,6 @@ module ApplicationHelper
   	last = ((2000000..4000000).step(100000)).map{|s| [("#{number_to_human s} #{t("kilometer")}") , s]}
 
   	a.concat(b).concat(c).concat(last)
-  	# raise
   end
 
   def price_range
@@ -74,14 +73,15 @@ module ApplicationHelper
   end
 
   def ad_title ad
-    if ad.ad_other_field.title.nil?
-      title = "<span class='pull-right title_element'>#{ad.make_name}، &nbsp;</span>"  if ad.make_id
-      title = title + " <span class='pull-right title_element'>#{ad.car_model_name}،&nbsp;</span>" if ad.car_model_id     
-      title = title + " <span class='pull-right title_element'>#{appropriate_year(ad) }</span> <br>" if ad.year           
+    if ad.make_id
+      title = " "
+      title = "<span class='pull-right title_element'>#{ad.make_name}، &nbsp;</span>"  if ad.make_name
+      title = title + " <span class='pull-right title_element'>#{ad.car_model_name}،&nbsp;</span>" if ad.car_model_name.present?     
+      title = title + " <span class='pull-right title_element'>#{appropriate_year(ad) }</span> <br>" if ad.year or ad.usage_type==1           
     else
       title = ad.ad_other_field.title
     end
-    title.html_safe
+    title.try(:html_safe)
   end
 
 end

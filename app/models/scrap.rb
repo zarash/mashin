@@ -56,6 +56,7 @@ private
   end
 
   def extract_other_fields(row)
+    @ad_hash[:title]      = title row
     @ad_hash[:tel]        = tel row
     @ad_hash[:thumb_img]  = thumb_img row
     @ad_hash[:source_url] = source_url row
@@ -72,6 +73,7 @@ private
 
   def build_ad_other_field_record ad
       ad.build_ad_other_field(
+        title:       @ad_hash[:title],
         source_url:  @ad_hash[:source_url],
         thumb_img:   @ad_hash[:thumb_img],
         tel:         @ad_hash[:tel]
@@ -112,18 +114,51 @@ private
 
   ###################################
   def make row
-    make_name = row.at_css(".base_fields .make").text
-    make = Make.find_or_create_by(name: make_name)
-    make.id
+    if row.at_css(".other_fields .scrap_name").text == "tejarat"
+      title = extract_make_and_car_model_for_tejarat row
+      Make.all.each do |make|
+        return make.id if title.include? make.name
+      end
+      nil
+    else
+      make_name = row.at_css(".base_fields .make").text
+      make = Make.find_or_create_by(name: make_name)
+      make.id
+    end
   end
 
   def car_model row
-    car_model_name = row.at_css(".base_fields .car_model").text
-    car_model = CarModel.find_by(name: car_model_name)
-    unless car_model
-      car_model = CarModel.create(name: car_model_name, make_id: make(row))
-    end    
+    if row.at_css(".other_fields .scrap_name").text == "tejarat"
+      return nil if @ad_hash[:make_id].nil?
+      title = extract_make_and_car_model_for_tejarat row
+      make = Make.find @ad_hash[:make_id]
+      make.car_models.each do |car_model|
+        return car_model.id  if title.include? car_model.name
+      end
+      car_model_name = title.gsub(make.name, "").strip
+      car_model = CarModel.find_by(name: car_model_name)
+      unless car_model
+        car_model = CarModel.create(name: car_model_name, make_id: make.id)
+      end    
+    else
+      car_model_name = row.at_css(".base_fields .car_model").text
+      car_model = CarModel.find_by(name: car_model_name)
+      unless car_model
+        car_model = CarModel.create(name: car_model_name, make_id: make(row))
+      end    
+    end
     car_model.id
+  end
+
+  def extract_make_and_car_model_for_tejarat row
+    title = row.at_css(".other_fields .title").text
+    title = title.gsub("فروش", "")
+    if title.index "مدل"
+      index = title.index "مدل"
+    elsif title.index "صفرکیلومتر"
+      index = title.index "صفرکیلومتر"
+    end
+    title[1,index-2]    
   end
 
   def price row
@@ -173,7 +208,7 @@ private
 
   def year_format row
     year_format = row.at_css(".base_fields .year_format").text
-    (year_format.to_i == "true") ? true : false
+    (year_format == "true") ? true : false
   end
 
   def usage_type row    
@@ -183,6 +218,10 @@ private
 
   def tel row
     row.at_css(".other_fields .tel").text
+  end
+
+  def title row
+    row.at_css(".other_fields .title").text
   end
 
   def source_url row

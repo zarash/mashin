@@ -25,6 +25,8 @@ module AdsHelper
   def appropriate_year(ad)
     if ad.year
       ad.year_format ? JalaliDate.new(ad.year).year : ad.year.year 
+    elsif ad.usage_type == 1
+      t("sefr")
     end
   end
 

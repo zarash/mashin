@@ -24,7 +24,8 @@
   .title{
     margin: 0;
     font-size: 1.7em;
-    color: #f4645f;
+    color: #525252;
+    overflow: hidden;
   }
   .back_to_search{
     padding-top: 2px;
@@ -50,7 +51,8 @@
           width: 100%;
           display: none;
           img{
-            width: 100%;
+            // width: 100%;
+            margin: 0 auto;
             height: 294px;
             border: 1px solid #D3D3D3;
             padding: 1px;
@@ -120,5 +122,6 @@
 }
 
 .my_active img{
-  border: 2px solid #f4645f !important;
+  border: 3px solid #7D70DD !important;
+  padding: 2px !important;
 }

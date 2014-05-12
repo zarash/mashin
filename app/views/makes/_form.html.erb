@@ -14,6 +14,9 @@
   <div class="field">
     <%= f.label :name %><br>
     <%= f.text_field :name %>
+    <%= f.label :year_format, "Year _Format" %>
+    <p>shamsi: <%= f.radio_button :year_format, :true %></p>
+    <p>miladi: <%= f.radio_button :year_format, :false %></p>
   </div>
   <div class="actions">
     <%= f.submit %>

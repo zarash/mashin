@@ -4,6 +4,7 @@
   <thead>
     <tr>
       <th>Name</th>
+      <th>shamsi</th>
       <th></th>
       <th></th>
       <th></th>
@@ -14,6 +15,9 @@
     <% @makes.each do |make| %>
       <tr>
         <td><%= make.name %></td>
+        <td>
+          <%= year_format_human make %>
+        </td>
         <td><%= link_to 'Show', make %></td>
         <td><%= link_to 'Edit', edit_make_path(make) %></td>
         <td><%= link_to 'Destroy', make, method: :delete, data: { confirm: 'Are you sure?' } %></td>

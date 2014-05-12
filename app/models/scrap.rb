@@ -16,7 +16,7 @@ private
   def single_page_sweep(doc)
     if doc.css('.ads').any?
       doc.css('.ads').each do |row|
-        sleep 10
+        sleep 20
         delete_path = row.at_css(".base_fields .show a")["href"]
         if skip_condition? row
           open(delete_path) # just for deletation
@@ -28,7 +28,7 @@ private
         extract_other_fields(row)
         build_ad_other_field_record(ad)
         extract_and_build_images(ad, row)
-        open(delete_path)
+        open(delete_path) # just for deletation
       end
     else
       @terminate = true

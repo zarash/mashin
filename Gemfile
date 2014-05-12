@@ -10,6 +10,8 @@ gem "cancan", "~> 1.6.10"
 gem "paperclip", "~> 3.5.2"
 gem 'aws-sdk'
 gem "geocoder", "~> 1.1.8"
+gem 'gmaps4rails'
+
 gem 'pg'
 gem 'simple_form'
 
@@ -19,7 +21,6 @@ gem "jalalidate", "~> 0.3.3"
 gem 'exception_notification'
 gem 'will_paginate'
 # gem 'will_paginate-bootstrap', '~> 1.0.0'
-gem 'gmaps4rails'
 # gem 'ckeditor', '~> 4.0.11'
 gem 'non-stupid-digest-assets', '~> 1.0.4'
 gem 'jquery-turbolinks'

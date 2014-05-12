@@ -5,3 +5,5 @@ GIRBOX_ARR = ["دنده ای", "اتوماتیک"]
 USAGE_ARR = ["کارکرده", "صفر کيلومتر", "حواله"]
 
 IMAGES_PATH = "https://s3-eu-west-1.amazonaws.com/otoyabi/static_files/images/"
+
+SCRAP_URL = "http://obscure-woodland-9401.herokuapp.com/"

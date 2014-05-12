@@ -1,9 +1,6 @@
 class ScrapsController < ApplicationController
   def index
-    scrap = Scrap.new
-    scrap.url = "http://obscure-woodland-9401.herokuapp.com/ads"
-    scrap.save
-    scrap.sweep
+    system "rake scrap --trace &"
     redirect_to root_path    
   end
 

@@ -1,6 +1,6 @@
 set :output, "#{path}/log/cron.log"
 
-every 30.minutes do
+every 3.hours do
   rake "scrap"
 end
 
